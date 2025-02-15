@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>オーイシマサヨシランダム生成ツール</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        #imageContainer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .image-item {
+            margin: 5px;
+            width: 100px;
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        オーイシマサヨシランダム生成ツール
+    </h1>
+    <p>
+        "オ" "ー" "イ" "シ" "マ" "サ" "ヨ"からランダム生成だけ
+    </p>
+    <button onclick="drawImages()">ランダム生成</button>
+    <div id="imageContainer"></div>
+
+    <script>
+        const imageNames = ["オ.jpg", "ー.jpg", "イ.jpg", "シ.jpg", "マ.jpg", "サ.jpg", "ヨ.jpg"];
+        
+        function drawImages() {
+            const imageContainer = document.getElementById("imageContainer");
+            imageContainer.innerHTML = "";
+            
+            for (let i = 0; i < 8; i++) {
+                const randomIndex = Math.floor(Math.random() * imageNames.length);
+                const img = document.createElement("img");
+                img.src = imageNames[randomIndex];
+                img.classList.add("image-item");
+                imageContainer.appendChild(img);
+            }
+        }
+    </script>
+</body>
+</html>
